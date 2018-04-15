@@ -13,6 +13,7 @@ def fibonacci(n):
         setattr(fibonacci, '_%s' % n, value)
         return value
 
+
 start = time.time()
 fibonacci(25)
 time.time() - start
