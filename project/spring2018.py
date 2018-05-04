@@ -11,8 +11,7 @@ Below is the url for daily prices of contentional gasoline at New Your Harbor
 (denoted by the symbol DGASNYH) from Jan 1, 2017 to Dec 31, 2017.
 https://fred.stlouisfed.org/graph/fredgraph.csv?cosd=2017-01-01&coed=2017-12-31&id=DGASNYH
 
-The data is returned in CSV (comma separated format) with the following columns:
-Date, Price
+The data is returned in CSV (comma separated format) with the following columns: Date, Price
 
 The daily return is defined by:
     (P_n - P_n-1) / P_n-1
@@ -23,7 +22,7 @@ The function signatures for various steps of this process have been
 given below. The names and parameters of these functions should not
 be changed. You are free to write additional functions or classes as
 needed. You are welcome to use any modules in the Python
-standard library as well as NumPy, SciPy, and Matplotlib external
+standard library as well as NumPy, SciPy, and Pandas external
 libraries. All code must run on Python 3.6.4.
 """
 
@@ -42,6 +41,8 @@ def get_fred_data(url):
     This function should take a url as returned by build_request_url
     and return a list of tuples with each tuple containing the
     date (as a Python date) and the price (as a float).
+
+    Any date which values which is non-numeric should be removed from list.
     """
     pass
 
@@ -61,6 +62,9 @@ def calculate_correlation(data):
     This function should take a list containing two lists of the form
     returned by calculate_returns (list of date, return tuples) and
     return the correlation of the daily returns as defined above.
+
+    Here the correlation refers to the Pearson correlation coeffcient:
+    https://en.wikipedia.org/wiki/Pearson_correlation_coefficient
     """
     pass
 
@@ -71,6 +75,10 @@ def main():
     Average (DJIA) and the US/Euro exchange rate (DEXUSEU)
     for Jan 1, 2017 to Dec 31, 2017. Using that
     data it should calculate and print the correlation of the daily returns.
+
+    Note that only dates where both DJAI and DEXUSEU have values should be
+    used when calculating the returns before calculating the correlation
+    of those returns.
     """
     pass
 
